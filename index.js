@@ -13,6 +13,13 @@ app.use(express.json())
 connectToDb()
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: ['https://65219f8d83e18d26e4facc29--comfy-sprite-076484.netlify.app'],
+    methods: ['GET', 'POST', 'DELETE', 'PUT'], 
+    credentials: true,
+  })
+)
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
